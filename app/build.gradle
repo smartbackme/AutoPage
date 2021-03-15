@@ -44,4 +44,7 @@ dependencies {
 
     implementation project(path: ':base-lib-autopage')
     kapt project(path: ':base-javalib-autopage-processor')
+//    implementation 'com.kangaroo:autopage:1.0.0'
+
+//    kapt 'com.kangaroo:autopage-processor:1.0.0'
 }

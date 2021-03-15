@@ -17,7 +17,9 @@ dependencies {
     compileOnly'com.google.auto.service:auto-service:1.0-rc7'
     kapt 'com.google.auto.service:auto-service:1.0-rc7'
     implementation 'com.squareup:javapoet:1.13.0'
-    implementation project(path: ':base-javalib-autopage')
+//    implementation project(path: ':base-javalib-autopage')
+    implementation 'com.kangaroo:autopage-lib:+'
+
 }
 
 publish {
@@ -25,7 +27,7 @@ publish {
     groupId = rootProject.ext.autopage.groupId         //compile引用时的第1部分groupId
     artifactId = rootProject.ext.autopage.artifactProcessorId     //compile引用时的第2部分项目名
     publishVersion = rootProject.ext.autopage.version  //compile引用时的第3部分版本号
-    desc = 'kangaroo autopage'//项目描述
+    desc = 'kangaroo autopage processor'//项目描述
     repoName= rootProject.ext.autopage.repoName //你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
     website = 'https://github.com/smartbackme/AutoPage' //github 托管地址
     dryRun=false
