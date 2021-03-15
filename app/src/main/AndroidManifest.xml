@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AutoPage">
-        <activity android:name=".MainActivity2"></activity>
+        <activity android:name=".FragmentSimpleActivity"></activity>
+        <activity android:name=".SimpleJump1Activity" />
+        <activity android:name=".MainActivity2" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,5 +11,11 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button).setOnClickListener {
             ApMainActivity2.getInstance().setMessage("123").start(this)
         }
+        findViewById<Button>(R.id.button2).setOnClickListener {
+            ApSimpleJump1Activity.getInstance().start(this)
+        }
+        findViewById<Button>(R.id.button3).setOnClickListener {
+            ApFragmentSimpleActivity.getInstance().start(this)
+        }
     }
 }

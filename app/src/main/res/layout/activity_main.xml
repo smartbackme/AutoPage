@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
@@ -15,4 +16,21 @@
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="4dp" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="jump one activity"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="4dp" />
+
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="jump one fragment and message"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="4dp" />
 </LinearLayout>
