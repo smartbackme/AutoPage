@@ -1,4 +1,40 @@
 
+activity 或者 fragment 每次跳转传值的时候，你是不是都很厌烦那种，参数传递。
+那么如果数据极其多的情况下，你的代码将苦不堪言，即使在很好的设计下，也会很蛋疼。那么今天我给大家推荐一个工具
+和咱原生跳转进行比较
+# 比较：
+1.跳转方式比较
+
+```bash
+ Intenti=new Intent(this,MainActivity.class);
+ startActivity(i);
+```
+vs
+
+```bash
+ApMainActivity.getInstance().start(this);
+```
+
+```bash
+    //发送
+    Intenti=new Intent(this,MainActivity.class);
+    Bundle bundle = new Bundle();
+    bundle.putInt("message", "123");
+    i.putExtra("Bundle", bundle);
+    startActivity(i);
+    //接收
+	String  s=bundle.getString("message","");
+
+```
+vs
+
+```bash
+	//发送
+	ApMainActivity.getInstance().setMessage("123").start(this);
+	//接收
+	AutoJ.inject(this);
+```
+
 # AutoPage
 Android 容易的跳转工具
 # 注意事项：必须有如下两个要求

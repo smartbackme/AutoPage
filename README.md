@@ -1,6 +1,49 @@
 # AutoPage
-Android activity easy jump 
+Android activity easy jump
 [中文说明](https://github.com/smartbackme/AutoPage/blob/master/README-zh.md)
+
+Every time activity or fragment jumps to pass value, are you tired of parameter passing.
+
+If you have too much data, your code will be miserable, even in a good design. So today I recommend a tool for you
+
+Compare with the original jump
+
+# Comparison:
+
+1. Comparison of jump modes
+
+```
+ Intenti=new Intent(this,MainActivity.class);
+ startActivity(i);
+```
+vs
+
+```
+ApMainActivity.getInstance().start(this);
+```
+
+```
+	//send
+    Intenti=new Intent(this,MainActivity.class);
+    Bundle bundle = new Bundle();
+    bundle.putInt("message", "123");
+    i.putExtra("Bundle", bundle);
+    startActivity(i);
+	//back
+	String  s=bundle.getString("message","");
+
+```
+vs
+
+```
+	//send
+	ApMainActivity.getInstance().setMessage("123").start(this);
+	//back
+	AutoJ.inject(this);
+```
+# AutoPage
+Android activity easy jump
+
 # must
 1. androidx
 2. kotlin & java
