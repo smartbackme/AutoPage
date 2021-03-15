@@ -1,4 +1,6 @@
 # AutoPage
+If you think it's good, gives me a star
+
 Android activity easy jump
 [中文说明](https://github.com/smartbackme/AutoPage/blob/master/README-zh.md)
 
