@@ -130,7 +130,10 @@ ext {
                     "audio_recorder"                  : "com.github.zhaolewei:ZlwAudioRecorder:v1.07",
                     "magicindicator"                  : "com.github.hackware1993:MagicIndicator:1.7.0",
                     "ktlint"                          : "com.pinterest:ktlint:0.36.0",
-                    "autosize"                        : "me.jessyan:autosize:1.2.1"
+                    "autosize"                        : "me.jessyan:autosize:1.2.1",
+                    "autopage"                        : "com.kangaroo:autopage:${autopage.version}",
+                    "autopage_processor"              : "com.kangaroo:autopage-processor:${autopage.version}",
+                    "autopage_lib"                    : "com.kangaroo:autopage-lib:${autopage.version}"
             ],
             picture     : [
                     picture_selector: "com.github.LuckSiege.PictureSelector:picture_library:v2.6.0"
