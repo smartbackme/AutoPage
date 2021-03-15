@@ -1,6 +1,7 @@
 package com.qdedu.autopage
 
 import android.app.Activity
+import androidx.fragment.app.Fragment
 import java.lang.reflect.Method
 
 /**
@@ -23,5 +24,17 @@ object AutoJ {
         }
     }
 
+
+
+    fun inject(fragment: Fragment) {
+        try {
+            val clazz: Class<*> = fragment.javaClass
+            val injectorClazz = Class.forName(clazz.`package`.name +"." + SUFFIX + clazz.simpleName)
+            val method: Method = injectorClazz.getMethod("inject", clazz)
+            method.invoke(null,fragment)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
 }

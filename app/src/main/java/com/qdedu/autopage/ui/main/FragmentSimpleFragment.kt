@@ -6,9 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.qdedu.autopage.AutoJ
+import com.qdedu.autopage.AutoPage
 import com.qdedu.autopage.R
-
 class FragmentSimpleFragment : Fragment() {
+
+
+    @AutoPage
+    @JvmField
+    var message:String? = null
 
     companion object {
         fun newInstance() = FragmentSimpleFragment()
@@ -25,7 +32,10 @@ class FragmentSimpleFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        AutoJ.inject(this)
         viewModel = ViewModelProvider(this).get(SimpleViewModel::class.java)
+        view?.findViewById<TextView>(R.id.message)?.text = message
+
     }
 
 }
