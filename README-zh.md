@@ -1,13 +1,13 @@
+
 # AutoPage
-Android activity easy jump 
-[中文说明](https://github.com/smartbackme/AutoPage/blob/master/README-zh.md)
-# must
+Android 容易的跳转工具
+# 注意事项：必须有如下两个要求
 1. androidx
 2. kotlin & java
 
-#########use#########
-config
-your module
+#########使用#########
+在你的每个需要做容易跳转的模块添加如下配置
+你的项目必须要支持 kapt
 kotlin kapt
 ```
 apply plugin: 'kotlin-kapt'
@@ -16,24 +16,24 @@ apply plugin: 'kotlin-kapt'
     kapt 'com.kangaroo:autopage-processor:1.0.2'
 ```
 
-**point**
+**重点**
 
- 1. @AutoPage in class or field
- 2. Ap suffix
+ 1. @AutoPage 只能在字段或者类上标注
+ 2. Ap 作为前缀，为你快速跳转
 
 
 *kotlin：*
-1. filed must have @JvmField and @AutoPage
-2. onCreate method must have AutoJ.inject(this)
+1. 字段必须标注 @JvmField 和 @AutoPage
+2. onCreate 中 在你的需要跳转的页面加入 AutoJ.inject(this)
 
 *java：*
-1. filed must have @AutoPage
-2. onCreate method must have AutoJ.inject(this)
+1. 字段必须标注 @AutoPage
+2. onCreate 中 在你的需要跳转的页面加入 AutoJ.inject(this)
 
 
-#########for Activity usage#########
-## example one
-simple jump to activity
+######### Activity 中使用#########
+## 例1
+简单的跳转
 
 ```
 @AutoPage
@@ -44,14 +44,14 @@ class SimpleJump1Activity : AppCompatActivity() {
     }
 }
 ```
-then
+之后调用
 
 ```
 ApSimpleJump1Activity.getInstance().start(this)
 ```
 
-## example two
-simple jump to activity and message
+## 例2
+简单的跳转并且带参数
 
 ```
 class MainActivity2 : AppCompatActivity() {
@@ -68,14 +68,14 @@ class MainActivity2 : AppCompatActivity() {
     }
 }
 ```
-then
+之后调用
 
 ```
 ApMainActivity2.getInstance().setMessage("123").start(this)
 ```
 
-## example three:
-jump to activity and result
+## 例3:
+跳转带有result
 
 ```
 @AutoPage
@@ -93,13 +93,13 @@ class SimpleJumpResultActivity : AppCompatActivity() {
     }
 }
 ```
-then
+之后调用
 
 ```
 ApSimpleJumpResultActivity.getInstance().requestCode(1).start(this)
 ```
 
-#########for Fragment usage#########
+####### 在 fragment 中使用 #########
 
 ```
 class FragmentSimpleFragment : Fragment() {
@@ -134,7 +134,7 @@ class FragmentSimpleFragment : Fragment() {
 
 ```
 
-then
+之后调用
 
 ```
 ApFragmentSimpleFragment.getInstance().setMessage("134").build()

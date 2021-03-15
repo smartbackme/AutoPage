@@ -4,7 +4,7 @@ buildscript {
     ext.kotlin_version = "1.3.30"
     repositories {
         google()
-        maven { url 'https://dl.bintray.com/297165331/AutoPage'}
+//        maven { url 'https://dl.bintray.com/297165331/AutoPage'}
         jcenter(){ url 'http://jcenter.bintray.com/'}
         maven { url 'https://jitpack.io' }
     }
