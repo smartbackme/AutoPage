@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.autopage.versionCode
+        versionName rootProject.ext.autopage.version
+        testInstrumentationRunner rootProject.ext.dependencies.androidJUnitRunner
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api project(path: ':base-javalib-autopage')
+
+}
+
+publish {
+    userOrg = '297165331'      //bintray注册的用户名
+    groupId = rootProject.ext.autopage.groupId         //compile引用时的第1部分groupId
+    artifactId = rootProject.ext.autopage.artifactId     //compile引用时的第2部分项目名
+    publishVersion = rootProject.ext.autopage.version  //compile引用时的第3部分版本号
+    desc = 'kangaroo autopage'//项目描述
+    repoName= rootProject.ext.autopage.repoName //你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
+    website = 'https://github.com/smartbackme/AutoPage' //github 托管地址
+    dryRun=false
+}

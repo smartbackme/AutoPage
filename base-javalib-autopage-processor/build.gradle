@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+apply plugin: 'com.novoda.bintray-release'
+
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly'com.google.auto.service:auto-service:1.0-rc7'
+    kapt 'com.google.auto.service:auto-service:1.0-rc7'
+    implementation 'com.squareup:javapoet:1.13.0'
+    implementation project(path: ':base-javalib-autopage')
+}
+
+publish {
+    userOrg = '297165331'      //bintray注册的用户名
+    groupId = rootProject.ext.autopage.groupId         //compile引用时的第1部分groupId
+    artifactId = rootProject.ext.autopage.artifactProcessorId     //compile引用时的第2部分项目名
+    publishVersion = rootProject.ext.autopage.version  //compile引用时的第3部分版本号
+    desc = 'kangaroo autopage'//项目描述
+    repoName= rootProject.ext.autopage.repoName //你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
+    website = 'https://github.com/smartbackme/AutoPage' //github 托管地址
+    dryRun=false
+}
