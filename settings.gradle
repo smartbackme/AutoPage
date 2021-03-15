@@ -1,0 +1,5 @@
+include ':app'
+include ':base-lib-autopage'
+include ':base-javalib-autopage-processor'
+include ':base-javalib-autopage'
+rootProject.name = "AutoPage"
