@@ -42,9 +42,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation project(path: ':base-lib-autopage')
-    kapt project(path: ':base-javalib-autopage-processor')
-//    implementation 'com.kangaroo:autopage:1.0.0'
+//    implementation project(path: ':base-lib-autopage')
+//    kapt project(path: ':base-javalib-autopage-processor')
 
-//    kapt 'com.kangaroo:autopage-processor:1.0.0'
+    implementation 'com.kangaroo:autopage:1.0.1'
+    kapt 'com.kangaroo:autopage-processor:1.0.1'
+
 }
