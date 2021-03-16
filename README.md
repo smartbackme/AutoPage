@@ -51,6 +51,12 @@ Android activity easy jump
 2. kotlin & java
 
 #########use#########
+project : build.gradle
+buildscript {
+    repositories {
+        maven { url 'https://dl.bintray.com/297165331/AutoPage'}
+    }
+
 config
 your module
 kotlin kapt
