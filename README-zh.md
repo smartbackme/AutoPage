@@ -44,11 +44,12 @@ Android 容易的跳转工具
 
 #########使用#########
 project : build.gradle 项目的gradle配置
+```
 buildscript {
     repositories {
         maven { url 'https://dl.bintray.com/297165331/AutoPage'}
     }
-
+```
 在你的每个需要做容易跳转的模块添加如下配置
 你的项目必须要支持 kapt
 kotlin kapt
