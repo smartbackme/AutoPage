@@ -43,6 +43,7 @@ Android 容易的跳转工具
 2. kotlin & java
 
 #########使用#########
+
 project : build.gradle 项目的gradle配置
 ```
 buildscript {

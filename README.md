@@ -51,6 +51,7 @@ Android activity easy jump
 2. kotlin & java
 
 #########use#########
+
 project : build.gradle
 ```
 buildscript {
