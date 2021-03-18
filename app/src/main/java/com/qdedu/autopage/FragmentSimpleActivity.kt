@@ -2,6 +2,7 @@ package com.qdedu.autopage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import com.qdedu.autopage.ui.main.ApFragmentSimpleFragment
 import com.qdedu.autopage.ui.main.FragmentSimpleFragment
 @AutoPage

@@ -1,5 +1,11 @@
 package com.qdedu.autopage.processor.utils
 
+import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.asTypeName
+import javax.lang.model.element.Element
+import kotlin.reflect.jvm.internal.impl.builtins.jvm.JavaToKotlinClassMap
+import kotlin.reflect.jvm.internal.impl.name.FqName
+
 /**
  * @author shidawei
  * 创建日期：2021/3/12
@@ -65,4 +71,15 @@ object StringUtils {
         val sb = getUpperMethod(name)
         return "add$sb"
     }
+
+    /**
+     *用于将字符串类型的去限定类类名转换为ClassName类
+     */
+    fun generateClassName(str: String): ClassName {
+        val lastIndex = str.lastIndexOf(".")
+        val pack = str.substring(0, lastIndex)
+        val simpleName = str.substring(lastIndex + 1)
+        return ClassName(pack,simpleName)
+    }
 }
+

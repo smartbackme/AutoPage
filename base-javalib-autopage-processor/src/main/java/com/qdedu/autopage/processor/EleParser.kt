@@ -1,10 +1,14 @@
 package com.qdedu.autopage.processor
 
+import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.asTypeName
 import java.io.IOException
 import java.util.*
 import javax.annotation.processing.ProcessingEnvironment
 import javax.lang.model.element.*
 import javax.tools.Diagnostic
+import kotlin.reflect.jvm.internal.impl.builtins.jvm.JavaToKotlinClassMap
+import kotlin.reflect.jvm.internal.impl.name.FqName
 
 /**
  * @author shidawei
@@ -123,7 +127,7 @@ class EleParser {
             val qtFieldDatas: MutableList<AotoPageFieldData> = ArrayList<AotoPageFieldData>()
             list?.let {
                 for (element in list) {
-                    qtFieldDatas.add(AotoPageFieldData(element.simpleName.toString(),"create from AutoPage",element.asType().toString()))
+                    qtFieldDatas.add(AotoPageFieldData(element.simpleName.toString(),"create from AutoPage",element.javaToKotlinType()?.toString() ?: element.asType().toString()))
                 }
             }
             clazzMap[key]?.let {
@@ -132,8 +136,11 @@ class EleParser {
                     processingEnv!!.messager.printMessage(Diagnostic.Kind.NOTE, "begin-----------------")
                     if (type == ACTIVITY) {
                         ActivityFactory(processingEnv!!,qtData).generateCode()
+                        KtActivityFactory(processingEnv!!,qtData).generateCode()
                     } else {
                         FragmentFactory(processingEnv!!,qtData).generateCode()
+                        KtFragmentFactory(processingEnv!!,qtData).generateCode()
+
                     }
                 } catch (e: IOException) {
                     e.printStackTrace()
@@ -147,5 +154,17 @@ class EleParser {
         val instance: EleParser by lazy {
             EleParser()
         }
+    }
+}
+
+/**
+ * 获取需要把java类型映射成kotlin类型的ClassName  如：java.lang.String 在kotlin中的类型为kotlin.String 如果是空则表示该类型无需进行映射
+ */
+fun Element.javaToKotlinType(): ClassName? {
+    val className = JavaToKotlinClassMap.INSTANCE.mapJavaToKotlin(FqName(this.asType().toString()))?.asSingleFqName()?.asString()
+    return if (className == null) {
+        null
+    } else {
+        ClassName.bestGuess(className)
     }
 }

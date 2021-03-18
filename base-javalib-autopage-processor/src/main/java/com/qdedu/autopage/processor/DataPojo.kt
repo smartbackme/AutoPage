@@ -15,4 +15,4 @@ class AotoPageData(
     var clazzData: ClazzData
 )
 
-class AotoPageFieldData ( var name: String, var doc: String, var fieldType: String )
+class AotoPageFieldData ( var name: String, var doc: String, var fieldType: String)
