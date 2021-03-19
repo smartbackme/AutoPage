@@ -8,7 +8,7 @@ Fast jump tool supporting kotlin & Java
 
 code address: [Version number v1.0.2](https://github.com/smartbackme/AutoPage/tree/v1.0.2)
 
-Document address: [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/master/README.md)
+Document address: [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README.md)
 
 chinese Document address: [中文文档地址 版本 v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
