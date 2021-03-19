@@ -17,6 +17,8 @@
 4. 支持多进程activity 跳转
 5. 降低内存占用，可回收内存提升
 
+# AutoPage v1.0.3
+
 如果觉得不错 给个star
 
 activity 或者 fragment 每次跳转传值的时候，你是不是都很厌烦那种，参数传递。

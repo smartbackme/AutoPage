@@ -27,7 +27,7 @@ Update content: (quick jump tool specially designed for kotlin. If your project 
 
 5. Reduce the memory occupation and improve the recyclable memory
 
-# AutoPage
+# AutoPage v1.0.3
 If you think it's good, gives me a star
 
 Android activity easy jump
