@@ -17,7 +17,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     compileOnly'com.google.auto.service:auto-service:1.0-rc7'
     kapt 'com.google.auto.service:auto-service:1.0-rc7'
-    implementation 'com.squareup:javapoet:1.13.0'
+//    implementation 'com.squareup:javapoet:1.13.0'
 //    implementation project(path: ':base-javalib-autopage')
     implementation 'com.kangaroo:autopage-lib:+'
 

@@ -135,10 +135,10 @@ class EleParser {
                 try {
                     processingEnv!!.messager.printMessage(Diagnostic.Kind.NOTE, "begin-----------------")
                     if (type == ACTIVITY) {
-                        ActivityFactory(processingEnv!!,qtData).generateCode()
+//                        ActivityFactory(processingEnv!!,qtData).generateCode()
                         KtActivityFactory(processingEnv!!,qtData).generateCode()
                     } else {
-                        FragmentFactory(processingEnv!!,qtData).generateCode()
+//                        FragmentFactory(processingEnv!!,qtData).generateCode()
                         KtFragmentFactory(processingEnv!!,qtData).generateCode()
 
                     }

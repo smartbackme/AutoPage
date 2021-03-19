@@ -13,7 +13,9 @@ class FragmentSimpleActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_simple_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ApFragmentSimpleFragment.getInstance().setMessage("134").build())
+                .replace(R.id.container, ApFragmentSimpleFragment.newInstance().apply {
+                    message = "123"
+                }.build())
                 .commitNow()
         }
 

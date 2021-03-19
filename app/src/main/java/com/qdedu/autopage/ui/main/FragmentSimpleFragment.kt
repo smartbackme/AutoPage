@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.qdedu.autopage.AutoJ
 import com.qdedu.autopage.AutoPage
 import com.qdedu.autopage.R
+//@AutoPage
 class FragmentSimpleFragment : Fragment() {
 
 
