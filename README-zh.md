@@ -4,6 +4,11 @@
 2. 支持多进程activity 跳转
 文档地址：
 
+代码地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/tree/v1.0.2)
+
+文档地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/master/README-zh.md)
+
+
 版本号 v1.0.3
 更新内容：（专门为kotlin设计的快速跳转工具，如果你的项目只支持java语言请不要用该版本）
 1. 代码采用kotlin 语法糖
