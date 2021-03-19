@@ -19,6 +19,7 @@ class AllDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_all_data)
         AutoJ.inject(this)
 
+
         Toast.makeText(this,myData?.toString()+message,Toast.LENGTH_LONG).show()
     }
 }

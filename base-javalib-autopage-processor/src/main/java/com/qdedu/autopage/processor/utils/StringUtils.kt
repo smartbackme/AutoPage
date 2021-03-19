@@ -72,9 +72,6 @@ object StringUtils {
         return "add$sb"
     }
 
-    /**
-     *用于将字符串类型的去限定类类名转换为ClassName类
-     */
     fun generateClassName(str: String): ClassName {
         val lastIndex = str.lastIndexOf(".")
         val pack = str.substring(0, lastIndex)
