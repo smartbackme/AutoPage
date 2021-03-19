@@ -1,3 +1,28 @@
+Version number v1.0.2
+
+Fast jump tool supporting kotlin & Java
+
+1. Support serializable large object transfer
+
+2. Support multi process activity jump
+
+Document address:
+
+
+Version number v1.0.3
+
+Update content: (quick jump tool specially designed for kotlin. If your project only supports Java language, please do not use this version)
+
+1. The code adopts kotlin syntax
+
+2. Support default value function
+
+3. The serializable data transmission is no longer supported, but the Parcelable large object transmission with better performance is used instead
+
+4. Support multi process activity jump
+
+5. Reduce the memory occupation and improve the recyclable memory
+
 # AutoPage
 If you think it's good, gives me a star
 
@@ -21,7 +46,8 @@ Compare with the original jump
 vs
 
 ```
-ApMainActivity.getInstance().start(this);
+ApMainActivity.newInstance().start(this)
+
 ```
 
 ```
@@ -39,10 +65,24 @@ vs
 
 ```
 	//send
-	ApMainActivity.getInstance().setMessage("123").start(this);
+	ApMainActivity.newInstance().apply {
+                    message = "123"
+                } .start(this)
 	//back
 	AutoJ.inject(this);
 ```
+
+Parcelable send
+```bash
+	//send
+	 ApAllDataActivity.newInstance().apply {
+                    message = "123"
+                    myData = MyData("hfafas",true,21)
+                } .start(this)
+	//back
+	AutoJ.inject(this);
+```
+
 # AutoPage
 Android activity easy jump
 
@@ -62,11 +102,20 @@ buildscript {
 config
 your module
 kotlin kapt
+Your project must support @Parcelize annotation, that is, you must add application plugin: 'kotlin Android extensions'
 ```
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-    implementation 'com.kangaroo:autopage:1.0.2'
-    kapt 'com.kangaroo:autopage-processor:1.0.2'
+android {
+androidExtensions {
+        experimental = true
+    }
+}
+
+
+    implementation 'com.kangaroo:autopage:1.0.3'
+    kapt 'com.kangaroo:autopage-processor:1.0.3'
 ```
 
 **point**
@@ -100,7 +149,8 @@ class SimpleJump1Activity : AppCompatActivity() {
 then
 
 ```
-ApSimpleJump1Activity.getInstance().start(this)
+ApSimpleJump1Activity.newInstance().start(this)
+
 ```
 
 ## example two
@@ -124,7 +174,9 @@ class MainActivity2 : AppCompatActivity() {
 then
 
 ```
-ApMainActivity2.getInstance().setMessage("123").start(this)
+            ApMainActivity2.newInstance().apply {
+                message = "123"
+            } .start(this)
 ```
 
 ## example three:
@@ -149,7 +201,72 @@ class SimpleJumpResultActivity : AppCompatActivity() {
 then
 
 ```
-ApSimpleJumpResultActivity.getInstance().requestCode(1).start(this)
+            ApSimpleJumpResultActivity.newInstance().apply {
+                requestCode = 1
+            }.start(this)
+```
+
+## example four:
+Parcelable
+
+pojo
+'''
+@Parcelize
+data class MyData(var message:String,var hehehe: Boolean,var temp :Int):Parcelable
+'''
+
+```
+class AllDataActivity : AppCompatActivity() {
+
+    @AutoPage
+    @JvmField
+    var myData:MyData? = null
+    @AutoPage
+    @JvmField
+    var message:String? = "this is default value"
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_all_data)
+        AutoJ.inject(this)
+
+
+        Toast.makeText(this,myData?.toString()+message,Toast.LENGTH_LONG).show()
+    }
+}
+```
+then
+
+```
+            ApAllDataActivity.newInstance().apply {
+                message = "123"
+                myData = MyData("hfafas",true,21)
+```
+
+## example five:
+default value
+
+```
+class DefaultValueActivity : AppCompatActivity() {
+
+    @AutoPage
+    @JvmField
+    var message:String? = "this is default value"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_default_value)
+        AutoJ.inject(this)
+//        var args = intent.getParcelableExtra<ArgsData>("123")
+        findViewById<Button>(R.id.button6).text = message
+    }
+}
+```
+then
+
+```
+            ApDefaultValueActivity.newInstance().apply {
+            } .start(this)
 ```
 
 #########for Fragment usage#########
@@ -190,7 +307,9 @@ class FragmentSimpleFragment : Fragment() {
 then
 
 ```
-ApFragmentSimpleFragment.getInstance().setMessage("134").build()
+ApFragmentSimpleFragment.newInstance().apply {
+                    message = "123"
+                }.build()
 ```
 
 # License

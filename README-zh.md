@@ -1,3 +1,17 @@
+版本号 v1.0.2
+支持kotlin & java的快速跳转工具
+1. 支持 Serializable 大对象传输
+2. 支持多进程activity 跳转
+文档地址：
+
+版本号 v1.0.3
+更新内容：（专门为kotlin设计的快速跳转工具，如果你的项目只支持java语言请不要用该版本）
+1. 代码采用kotlin 语法糖
+2. 支持默认值功能
+3. 不再支持Serializable数据传输，改为性能更好的 Parcelable 大对象传输
+4. 支持多进程activity 跳转
+5. 降低内存占用，可回收内存提升
+
 如果觉得不错 给个star
 
 activity 或者 fragment 每次跳转传值的时候，你是不是都很厌烦那种，参数传递。
@@ -13,7 +27,7 @@ activity 或者 fragment 每次跳转传值的时候，你是不是都很厌烦�
 vs
 
 ```bash
-ApMainActivity.getInstance().start(this);
+ApMainActivity.newInstance().start(this)
 ```
 
 ```bash
@@ -31,7 +45,20 @@ vs
 
 ```bash
 	//发送
-	ApMainActivity.getInstance().setMessage("123").start(this);
+	ApMainActivity.newInstance().apply {
+                    message = "123"
+                } .start(this)
+	//接收
+	AutoJ.inject(this);
+```
+
+实体发送
+```bash
+	//发送
+	 ApAllDataActivity.newInstance().apply {
+                    message = "123"
+                    myData = MyData("hfafas",true,21)
+                } .start(this)
 	//接收
 	AutoJ.inject(this);
 ```
@@ -52,13 +79,21 @@ buildscript {
     }
 ```
 在你的每个需要做容易跳转的模块添加如下配置
-你的项目必须要支持 kapt
-kotlin kapt
+1. 你的项目必须要支持 kapt
+2. kotlin kapt
+3. 你的项目必须支持 @Parcelize 注解 也就是必须添加 apply plugin: 'kotlin-android-extensions'
 ```
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-    implementation 'com.kangaroo:autopage:1.0.2'
-    kapt 'com.kangaroo:autopage-processor:1.0.2'
+android {
+androidExtensions {
+        experimental = true
+    }
+}
+
+    implementation 'com.kangaroo:autopage:1.0.3'
+    kapt 'com.kangaroo:autopage-processor:1.0.3'
 ```
 
 **重点**
@@ -92,7 +127,7 @@ class SimpleJump1Activity : AppCompatActivity() {
 之后调用
 
 ```
-ApSimpleJump1Activity.getInstance().start(this)
+ApSimpleJump1Activity.newInstance().start(this)
 ```
 
 ## 例2
@@ -116,7 +151,9 @@ class MainActivity2 : AppCompatActivity() {
 之后调用
 
 ```
-ApMainActivity2.getInstance().setMessage("123").start(this)
+            ApMainActivity2.newInstance().apply {
+                message = "123"
+            } .start(this)
 ```
 
 ## 例3:
@@ -141,7 +178,72 @@ class SimpleJumpResultActivity : AppCompatActivity() {
 之后调用
 
 ```
-ApSimpleJumpResultActivity.getInstance().requestCode(1).start(this)
+            ApSimpleJumpResultActivity.newInstance().apply {
+                requestCode = 1
+            }.start(this)
+```
+
+## 例4:
+实体传输
+
+实体
+'''
+@Parcelize
+data class MyData(var message:String,var hehehe: Boolean,var temp :Int):Parcelable
+'''
+
+```
+class AllDataActivity : AppCompatActivity() {
+
+    @AutoPage
+    @JvmField
+    var myData:MyData? = null
+    @AutoPage
+    @JvmField
+    var message:String? = "this is default value"
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_all_data)
+        AutoJ.inject(this)
+
+
+        Toast.makeText(this,myData?.toString()+message,Toast.LENGTH_LONG).show()
+    }
+}
+```
+之后调用
+
+```
+            ApAllDataActivity.newInstance().apply {
+                message = "123"
+                myData = MyData("hfafas",true,21)
+```
+
+## 例5:
+默认值
+
+```
+class DefaultValueActivity : AppCompatActivity() {
+
+    @AutoPage
+    @JvmField
+    var message:String? = "this is default value"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_default_value)
+        AutoJ.inject(this)
+//        var args = intent.getParcelableExtra<ArgsData>("123")
+        findViewById<Button>(R.id.button6).text = message
+    }
+}
+```
+之后调用
+
+```
+            ApDefaultValueActivity.newInstance().apply {
+            } .start(this)
 ```
 
 ####### 在 fragment 中使用 #########
@@ -182,7 +284,9 @@ class FragmentSimpleFragment : Fragment() {
 之后调用
 
 ```
-ApFragmentSimpleFragment.getInstance().setMessage("134").build()
+ApFragmentSimpleFragment.newInstance().apply {
+                    message = "123"
+                }.build()
 ```
 
 # License
