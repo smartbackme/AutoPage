@@ -10,7 +10,7 @@ code address: [Version number v1.0.2](https://github.com/smartbackme/AutoPage/tr
 
 Document address: [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/master/README.md)
 
-chinese Document address: [中文文档地址 版本 v1.0.2](https://github.com/smartbackme/AutoPage/blob/master/README-zh.md)
+chinese Document address: [中文文档地址 版本 v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
 Version number v1.0.3
