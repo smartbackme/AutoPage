@@ -6,7 +6,7 @@
 
 代码地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/tree/v1.0.2)
 
-文档地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/master/README-zh.md)
+文档地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
 版本号 v1.0.3
