@@ -159,7 +159,20 @@ class EleParser {
  * 获取需要把java类型映射成kotlin类型的ClassName  如：java.lang.String 在kotlin中的类型为kotlin.String 如果是空则表示该类型无需进行映射
  */
 fun Element.javaToKotlinType(): ClassName? {
-    val className = JavaToKotlinClassMap.INSTANCE.mapJavaToKotlin(FqName(this.asType().toString()))?.asSingleFqName()?.asString()
+    var name = this.asType().toString()
+    name = when(name){
+        "int" -> "java.lang.Integer"
+        "long" -> "java.lang.Long"
+        "boolean" -> "java.lang.Boolean"
+        "double" -> "java.lang.Double"
+        "float" -> "java.lang.Float"
+        "char" -> "java.lang.Character"
+        "byte" -> "java.lang.Byte"
+        "short" -> "java.lang.Short"
+        else -> name
+    }
+
+    val className = JavaToKotlinClassMap.INSTANCE.mapJavaToKotlin(FqName(name))?.asSingleFqName()?.asString()
     return if (className == null) {
         null
     } else {

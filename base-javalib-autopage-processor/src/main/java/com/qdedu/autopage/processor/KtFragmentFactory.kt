@@ -67,7 +67,7 @@ class KtFragmentFactory(processingEnv: ProcessingEnvironment, autoPageData: Aoto
                           if(data.${
                     hasSetData+data.name}) fragment.${
                     data.name.toString()
-                }=data.${data.name}
+                }=data.${data.name}!!
                 
                 """.trimIndent()
             )

@@ -108,7 +108,7 @@ class KtActivityFactory( processingEnv: ProcessingEnvironment, autoPageData: Aot
                           if(data.${
                     hasSetData+data.name}) activity.${
                     data.name.toString()
-                }=data.${data.name}
+                }=data.${data.name}!!
                 
                 """.trimIndent()
             )

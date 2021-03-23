@@ -4,6 +4,7 @@ import com.qdedu.autopage.processor.utils.StringUtils
 import com.squareup.kotlinpoet.*
 import java.io.IOException
 import javax.annotation.processing.ProcessingEnvironment
+import javax.tools.Diagnostic
 
 
 const val SUFFIX = "Ap"
@@ -157,8 +158,11 @@ abstract class KtFileFactory (val processingEnv: ProcessingEnvironment, val auto
             .setter(FunSpec.setterBuilder()
                 .addParameter("value", StringUtils.generateClassName(data.fieldType))
                 .addCode("""
-                ${REQUEST_DATA_FIELD_NAME}!!.${hasSetData+data.name} = true
-                ${REQUEST_DATA_FIELD_NAME}!!.${data.name} = value
+                          if(value!=null){
+                            ${REQUEST_DATA_FIELD_NAME}!!.${hasSetData+data.name} = true
+                            ${REQUEST_DATA_FIELD_NAME}!!.${data.name} = value
+                          }
+                
             """.trimIndent())
                 .build())
              .addKdoc(data.doc)
@@ -217,6 +221,7 @@ abstract class KtFileFactory (val processingEnv: ProcessingEnvironment, val auto
 ////                .build())
 //            .addKdoc(data.doc)
 //            .build()
+
 
         typeBuilder.addProperty(PropertySpec.builder(data.name,
             StringUtils.generateClassName(data.fieldType).copy(true))
