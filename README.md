@@ -13,7 +13,7 @@ Document address: [Version number v1.0.2](https://github.com/smartbackme/AutoPag
 chinese Document address: [中文文档地址 版本 v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
-Version number v1.0.3
+Version number v1.0.4
 
 Update content: (quick jump tool specially designed for kotlin. If your project only supports Java language, please do not use this version)
 
@@ -27,7 +27,7 @@ Update content: (quick jump tool specially designed for kotlin. If your project 
 
 5. Reduce the memory occupation and improve the recyclable memory
 
-# AutoPage v1.0.3
+# AutoPage v1.0.4
 If you think it's good, gives me a star
 
 Android activity easy jump
@@ -94,6 +94,62 @@ Android activity easy jump
 1. androidx
 2. kotlin & java
 
+# Support transport type
+
+All basic types supported by bundles (except ShortArray)
+
+All of the following types are supported. If the type is not the following, a kapt error may be reported
+
+```bash
+
+    :Parcelable
+
+    String
+
+    Long
+
+    Int
+
+    Boolean
+
+    Char
+
+    Byte
+
+    Float
+
+    Double
+
+    Short
+
+    CharSequence
+
+    CharArray
+
+    IntArray
+
+    LongArray
+
+    BooleanArray
+
+    DoubleArray
+
+    FloatArray
+
+    ByteArray
+
+    ArrayList<Int>
+
+    ArrayList<String>
+
+    ArrayList<CharSequence>
+
+    ArrayList<:Parcelable>
+
+    Array<:Parcelable>
+```
+
+
 #########use#########
 
 project : build.gradle
@@ -118,8 +174,8 @@ androidExtensions {
 }
 
 
-    implementation 'com.kangaroo:autopage:1.0.3'
-    kapt 'com.kangaroo:autopage-processor:1.0.3'
+    implementation 'com.kangaroo:autopage:1.0.4'
+    kapt 'com.kangaroo:autopage-processor:1.0.4'
 ```
 
 **point**

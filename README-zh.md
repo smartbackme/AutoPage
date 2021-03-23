@@ -9,7 +9,7 @@
 文档地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
-版本号 v1.0.3
+版本号 v1.0.4
 更新内容：（专门为kotlin设计的快速跳转工具，如果你的项目只支持java语言请不要用该版本）
 1. 代码采用kotlin 语法糖
 2. 支持默认值功能
@@ -17,7 +17,7 @@
 4. 支持多进程activity 跳转
 5. 降低内存占用，可回收内存提升
 
-# AutoPage v1.0.3
+# AutoPage v1.0.4
 
 如果觉得不错 给个star
 
@@ -76,6 +76,61 @@ Android 容易的跳转工具
 1. androidx
 2. kotlin & java
 
+# 支持传输类型
+
+bundle 支持的基本类型都支持（除ShortArray）
+以下类型都支持，如果类型不是如下类型，可能会报kapt错误
+
+```bash
+
+    :Parcelable
+
+    String
+
+    Long
+
+    Int
+
+    Boolean
+
+    Char
+
+    Byte
+
+    Float
+
+    Double
+
+    Short
+
+    CharSequence
+
+    CharArray
+
+    IntArray
+
+    LongArray
+
+    BooleanArray
+
+    DoubleArray
+
+    FloatArray
+
+    ByteArray
+
+    ArrayList<Int>
+
+    ArrayList<String>
+
+    ArrayList<CharSequence>
+
+    ArrayList<:Parcelable>
+
+    Array<:Parcelable>
+```
+
+
 #########使用#########
 
 project : build.gradle 项目的gradle配置
@@ -99,8 +154,8 @@ androidExtensions {
     }
 }
 
-    implementation 'com.kangaroo:autopage:1.0.3'
-    kapt 'com.kangaroo:autopage-processor:1.0.3'
+    implementation 'com.kangaroo:autopage:1.0.4'
+    kapt 'com.kangaroo:autopage-processor:1.0.4'
 ```
 
 **重点**
