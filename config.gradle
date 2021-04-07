@@ -21,8 +21,8 @@ ext {
 
     autopage = [
             online      : false,
-            version     : "1.0.4",
-            versionCode : 5,
+            version     : "1.0.5",
+            versionCode : 6,
             groupId     : 'com.kangaroo',
             artifactId  : 'autopage',
             artifactProcessorId  : 'autopage-processor',
@@ -131,9 +131,9 @@ ext {
                     "magicindicator"                  : "com.github.hackware1993:MagicIndicator:1.7.0",
                     "ktlint"                          : "com.pinterest:ktlint:0.36.0",
                     "autosize"                        : "me.jessyan:autosize:1.2.1",
-                    "autopage"                        : "com.kangaroo:autopage:${autopage.version}",
-                    "autopage_processor"              : "com.kangaroo:autopage-processor:${autopage.version}",
-                    "autopage_lib"                    : "com.kangaroo:autopage-lib:${autopage.version}"
+                    "autopage"                        : "com.github.smartbackme.AutoPage:autopage:${autopage.version}",
+                    "autopage_processor"              : "com.github.smartbackme.AutoPage:autopage-processor:${autopage.version}",
+                    "autopage_lib"                    : "com.github.smartbackme.AutoPage:autopage-lib:${autopage.version}"
             ],
             picture     : [
                     picture_selector: "com.github.LuckSiege.PictureSelector:picture_library:v2.6.0"
