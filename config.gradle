@@ -21,8 +21,8 @@ ext {
 
     autopage = [
             online      : false,
-            version     : "1.0.5",
-            versionCode : 6,
+            version     : "1.0.7",
+            versionCode : 7,
             groupId     : 'com.kangaroo',
             artifactId  : 'autopage',
             artifactProcessorId  : 'autopage-processor',

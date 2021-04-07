@@ -48,10 +48,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-//    implementation project(path: ':autopage')
-//    kapt project(path: ':autopage-processor')
+    implementation project(path: ':autopage')
+    kapt project(path: ':autopage-processor')
 //
-    implementation rootProject.ext.dependencies.tools.autopage
-    kapt rootProject.ext.dependencies.tools.autopage_processor
+//    implementation rootProject.ext.dependencies.tools.autopage
+//    kapt rootProject.ext.dependencies.tools.autopage_processor
 
 }

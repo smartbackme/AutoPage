@@ -20,8 +20,8 @@ dependencies {
     kapt 'com.google.auto.service:auto-service:1.0-rc7'
 //    implementation 'com.squareup:javapoet:1.13.0'
 
-//    implementation project(path: ':autopage-lib')
-    implementation rootProject.ext.dependencies.tools.autopage_lib
+    implementation project(path: ':autopage-lib')
+//    implementation rootProject.ext.dependencies.tools.autopage_lib
 
     implementation 'com.squareup:kotlinpoet:1.7.2'
 
