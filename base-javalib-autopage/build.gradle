@@ -3,7 +3,8 @@ plugins {
     id 'kotlin'
 }
 apply plugin: 'com.novoda.bintray-release'
-
+apply plugin: 'com.github.dcendents.android-maven'
+group="com.github.smartbackme"
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
     targetCompatibility = JavaVersion.VERSION_1_7

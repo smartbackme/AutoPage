@@ -141,7 +141,6 @@ class AllDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_all_data)
         AutoJ.inject(this)
 
-        var b = Bundle()
         Toast.makeText(this,myData?.toString()+message,Toast.LENGTH_LONG).show()
     }
 }

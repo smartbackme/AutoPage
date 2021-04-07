@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
 }
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.dcendents.android-maven'
+group="com.github.smartbackme"
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -38,8 +40,8 @@ android {
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-//    api project(path: ':base-javalib-autopage')
-    api rootProject.ext.dependencies.tools.autopage_lib
+    api project(path: ':base-javalib-autopage')
+//    api rootProject.ext.dependencies.tools.autopage_lib
     implementation 'androidx.appcompat:appcompat:1.2.0'
 
 }
