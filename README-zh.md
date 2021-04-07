@@ -133,11 +133,13 @@ bundle 支持的基本类型都支持（除ShortArray）
 
 #########使用#########
 
+由于5月1日后jcenter 服务将被弃用，于是项目迁移到jitpack上，版本号也同期更改为1.0.7
+
 project : build.gradle 项目的gradle配置
 ```
 buildscript {
     repositories {
-        maven { url 'https://dl.bintray.com/297165331/AutoPage'}
+        maven { url 'https://www.jitpack.io' }
     }
 ```
 在你的每个需要做容易跳转的模块添加如下配置
@@ -154,8 +156,8 @@ androidExtensions {
     }
 }
 
-    implementation 'com.kangaroo:autopage:1.0.4'
-    kapt 'com.kangaroo:autopage-processor:1.0.4'
+    kapt com.github.smartbackme.AutoPage:autopage-processor:1.0.7
+    implementation com.github.smartbackme.AutoPage:autopage:1.0.7
 ```
 
 **重点**

@@ -152,11 +152,13 @@ All of the following types are supported. If the type is not the following, a ka
 
 #########use#########
 
+Since jcenter service will be abandoned after May 1, the project will be migrated to jitpack, and the version number will be changed to 1.0.7 at the same time
+
 project : build.gradle
 ```
 buildscript {
     repositories {
-        maven { url 'https://dl.bintray.com/297165331/AutoPage'}
+        maven { url 'https://www.jitpack.io' }
     }
 ```
 config
@@ -174,8 +176,8 @@ androidExtensions {
 }
 
 
-    implementation 'com.kangaroo:autopage:1.0.4'
-    kapt 'com.kangaroo:autopage-processor:1.0.4'
+    kapt com.github.smartbackme.AutoPage:autopage-processor:1.0.7
+    implementation com.github.smartbackme.AutoPage:autopage:1.0.7
 ```
 
 **point**
