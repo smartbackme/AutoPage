@@ -15,7 +15,7 @@
 文档地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
-版本号 v1.0.4
+版本号 v1.0.7
 更新内容：（专门为kotlin设计的快速跳转工具，如果你的项目只支持java语言请不要用该版本）
 1. 代码采用kotlin 语法糖
 2. 支持默认值功能
@@ -23,7 +23,7 @@
 4. 支持多进程activity 跳转
 5. 降低内存占用，可回收内存提升
 
-# AutoPage v1.0.4
+# AutoPage v1.0.7
 
 如果觉得不错 给个star
 

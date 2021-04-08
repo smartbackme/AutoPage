@@ -19,7 +19,7 @@ Document address: [Version number v1.0.2](https://github.com/smartbackme/AutoPag
 chinese Document address: [中文文档地址 版本 v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
-Version number v1.0.4
+Version number v1.0.7
 
 Update content: (quick jump tool specially designed for kotlin. If your project only supports Java language, please do not use this version)
 
@@ -33,7 +33,7 @@ Update content: (quick jump tool specially designed for kotlin. If your project 
 
 5. Reduce the memory occupation and improve the recyclable memory
 
-# AutoPage v1.0.4
+# AutoPage v1.0.7
 If you think it's good, gives me a star
 
 Android activity easy jump
