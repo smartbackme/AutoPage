@@ -1,3 +1,9 @@
+![](https://img.shields.io/badge/JitPack-1.0.7-green)
+![](https://img.shields.io/badge/JCenter-1.0.4-yellowgreen)
+![](https://img.shields.io/badge/code-kotlin-red)
+![](https://img.shields.io/badge/Android%20Arsenal-AutoPage-yellow)
+![](https://img.shields.io/badge/author-smartbackme-blue)
+# AutoPage
 Version number v1.0.2
 
 Fast jump tool supporting kotlin & Java
@@ -373,6 +379,10 @@ ApFragmentSimpleFragment.newInstance().apply {
                     message = "123"
                 }.build()
 ```
+
+# Document
+
+Wait...
 
 # License
 

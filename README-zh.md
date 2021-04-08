@@ -1,3 +1,9 @@
+![](https://img.shields.io/badge/JitPack-1.0.7-green)
+![](https://img.shields.io/badge/JCenter-1.0.4-yellowgreen)
+![](https://img.shields.io/badge/code-kotlin-red)
+![](https://img.shields.io/badge/Android%20Arsenal-AutoPage-yellow)
+![](https://img.shields.io/badge/author-smartbackme-blue)
+# AutoPage
 版本号 v1.0.2
 支持kotlin & java的快速跳转工具
 1. 支持 Serializable 大对象传输
@@ -352,6 +358,10 @@ ApFragmentSimpleFragment.newInstance().apply {
                     message = "123"
                 }.build()
 ```
+
+# Document
+
+Wait...
 
 # License
 
