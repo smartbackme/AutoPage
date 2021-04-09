@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/JitPack-1.0.7-green)
+![](https://img.shields.io/badge/JitPack-1.0.8-green)
 ![](https://img.shields.io/badge/JCenter-1.0.4-yellowgreen)
 ![](https://img.shields.io/badge/code-kotlin-red)
 ![](https://img.shields.io/badge/Android%20Arsenal-AutoPage-yellow)
@@ -15,7 +15,7 @@
 文档地址： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
-版本号 v1.0.7
+版本号 v1.0.8
 更新内容：（专门为kotlin设计的快速跳转工具，如果你的项目只支持java语言请不要用该版本）
 1. 代码采用kotlin 语法糖
 2. 支持默认值功能
@@ -23,7 +23,7 @@
 4. 支持多进程activity 跳转
 5. 降低内存占用，可回收内存提升
 
-# AutoPage v1.0.7
+# AutoPage v1.0.8
 
 如果觉得不错 给个star
 
@@ -139,7 +139,7 @@ bundle 支持的基本类型都支持（除ShortArray）
 
 #########使用#########
 
-由于5月1日后jcenter 服务将被弃用，于是项目迁移到jitpack上，版本号也同期更改为1.0.7
+由于5月1日后jcenter 服务将被弃用，于是项目迁移到jitpack上，版本号也同期更改为1.0.8
 
 project : build.gradle 项目的gradle配置
 ```
@@ -162,8 +162,8 @@ androidExtensions {
     }
 }
 
-    kapt com.github.smartbackme.AutoPage:autopage-processor:1.0.7
-    implementation com.github.smartbackme.AutoPage:autopage:1.0.7
+    kapt com.github.smartbackme.AutoPage:autopage-processor:1.0.8
+    implementation com.github.smartbackme.AutoPage:autopage:1.0.8
 ```
 
 **重点**

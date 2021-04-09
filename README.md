@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/JitPack-1.0.7-green)
+![](https://img.shields.io/badge/JitPack-1.0.8-green)
 ![](https://img.shields.io/badge/JCenter-1.0.4-yellowgreen)
 ![](https://img.shields.io/badge/code-kotlin-red)
 ![](https://img.shields.io/badge/Android%20Arsenal-AutoPage-yellow)
@@ -19,7 +19,7 @@ Document address: [Version number v1.0.2](https://github.com/smartbackme/AutoPag
 chinese Document address: [中文文档地址 版本 v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
-Version number v1.0.7
+Version number v1.0.8
 
 Update content: (quick jump tool specially designed for kotlin. If your project only supports Java language, please do not use this version)
 
@@ -33,7 +33,7 @@ Update content: (quick jump tool specially designed for kotlin. If your project 
 
 5. Reduce the memory occupation and improve the recyclable memory
 
-# AutoPage v1.0.7
+# AutoPage v1.0.8
 If you think it's good, gives me a star
 
 Android activity easy jump
@@ -158,7 +158,7 @@ All of the following types are supported. If the type is not the following, a ka
 
 #########use#########
 
-Since jcenter service will be abandoned after May 1, the project will be migrated to jitpack, and the version number will be changed to 1.0.7 at the same time
+Since jcenter service will be abandoned after May 1, the project will be migrated to jitpack, and the version number will be changed to 1.0.8 at the same time
 
 project : build.gradle
 ```
@@ -182,8 +182,8 @@ androidExtensions {
 }
 
 
-    kapt com.github.smartbackme.AutoPage:autopage-processor:1.0.7
-    implementation com.github.smartbackme.AutoPage:autopage:1.0.7
+    kapt com.github.smartbackme.AutoPage:autopage-processor:1.0.8
+    implementation com.github.smartbackme.AutoPage:autopage:1.0.8
 ```
 
 **point**
