@@ -47,10 +47,39 @@ abstract class KtFileFactory (val processingEnv: ProcessingEnvironment, val auto
     @Throws(IOException::class)
     protected fun build(type: TypeSpec) {
         // 输出kotlin文件到build
-        FileSpec.builder(pageName,type.name!!)
-            .addType(type)
-            .addComment("The file is auto-generate by processorTool,do not modify!")
-            .build().writeTo(processingEnv.filer)
+        try {
+            FileSpec.builder(pageName,type.name!!)
+                .addType(type)
+                .addComment("The file is auto-generate by processorTool,do not modify!")
+                .build().writeTo(processingEnv.filer)
+
+        } catch (e : IllegalArgumentException){
+            processingEnv.messager.printMessage(Diagnostic.Kind.ERROR, "type is error ,please check type ,type must  \n:Parcelable\n" +
+                    "    String\n" +
+                    "    Long\n" +
+                    "    Int\n" +
+                    "    Boolean\n" +
+                    "    Char\n" +
+                    "    Byte\n" +
+                    "    Float\n" +
+                    "    Double\n" +
+                    "    Short\n" +
+                    "    CharSequence\n" +
+                    "    CharArray\n" +
+                    "    IntArray\n" +
+                    "    LongArray\n" +
+                    "    BooleanArray\n" +
+                    "    DoubleArray\n" +
+                    "    FloatArray\n" +
+                    "    ByteArray\n" +
+                    "    ArrayList<Int>\n" +
+                    "    ArrayList<String>\n" +
+                    "    ArrayList<CharSequence>\n" +
+                    "    ArrayList<:Parcelable>\n" +
+                    "    Array<:Parcelable>")
+            throw e
+        }
+
     }
 
     abstract fun generateCode()

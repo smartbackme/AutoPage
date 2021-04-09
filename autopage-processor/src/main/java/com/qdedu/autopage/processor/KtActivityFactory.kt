@@ -49,8 +49,7 @@ class KtActivityFactory( processingEnv: ProcessingEnvironment, autoPageData: Aot
 //        generateClassName = ClassName(pageName, className)
 //    }
 
-
-
+    @Throws(IOException::class)
     override fun generateCode(){
         val typeBuilder = generateTypeBuilder()
         addFields(typeBuilder)

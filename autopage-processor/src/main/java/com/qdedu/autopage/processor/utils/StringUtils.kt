@@ -124,7 +124,7 @@ object StringUtils {
         return if(lastIndex!=-1){
             val pack = str.substring(0, lastIndex)
             val simpleName = str.substring(lastIndex + 1)
-            print(pack+simpleName)
+//            print(pack+simpleName)
             ClassName(pack,simpleName)
         }else{
             ClassName("",str)
