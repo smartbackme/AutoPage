@@ -4,108 +4,81 @@
 ![](https://img.shields.io/badge/Android%20Arsenal-AutoPage-yellow)
 ![](https://img.shields.io/badge/author-smartbackme-blue)
 # AutoPage
-Version number v1.0.2
+番号 v1.0.2
+kotlin & java　をサポートします
+1. Serializable をサポートします
 
-Fast jump tool supporting kotlin & Java
+code address： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/tree/v1.0.2)
 
-1. Support serializable large object transfer
-
-2. Support multi process activity jump
-
-code address: [Version number v1.0.2](https://github.com/smartbackme/AutoPage/tree/v1.0.2)
-
-Document address: [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README.md)
-
-chinese Document address: [中文文档地址 版本 v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
+説明書： [Version number v1.0.2](https://github.com/smartbackme/AutoPage/blob/v1.0.2/README-zh.md)
 
 
-Version number v1.0.8
-
-Update content: (quick jump tool specially designed for kotlin. If your project only supports Java language, please do not use this version)
-
-1. The code adopts kotlin syntax
-
-2. Support default value function
-
-3. The serializable data transmission is no longer supported, but the Parcelable large object transmission with better performance is used instead
-
-4. Support multi process activity jump
-
-5. Reduce the memory occupation and improve the recyclable memory
+番号 v1.0.8
+更新内容：（特にkotlinのために）
+1. kotlin の　利用
+2. default　value
+3.  Parcelable をサポートします
+4. 性能を向上させる
 
 # AutoPage v1.0.8
-If you think it's good, gives me a star
 
-Android activity easy jump
-[中文说明](https://github.com/smartbackme/AutoPage/blob/master/README-zh.md)
-[日本語](https://github.com/smartbackme/AutoPage/blob/master/README-jp.md)
+いいと思ったら　starをお願いします
 
-Every time activity or fragment jumps to pass value, are you tired of parameter passing.
+# 比較：
+1.ジャンプ方式の比較
 
-If you have too much data, your code will be miserable, even in a good design. So today I recommend a tool for you
-
-Compare with the original jump
-
-# Comparison:
-
-1. Comparison of jump modes
-
-```
+```bash
  Intenti=new Intent(this,MainActivity.class);
  startActivity(i);
 ```
 vs
 
-```
+```bash
 ApMainActivity.newInstance().start(this)
-
 ```
 
-```
-	//send
+```bash
+    //送信
     Intenti=new Intent(this,MainActivity.class);
     Bundle bundle = new Bundle();
     bundle.putInt("message", "123");
     i.putExtra("Bundle", bundle);
     startActivity(i);
-	//back
+    //受信
 	String  s=bundle.getString("message","");
 
 ```
 vs
 
-```
-	//send
+```bash
+	//送信
 	ApMainActivity.newInstance().apply {
                     message = "123"
                 } .start(this)
-	//back
+	//受信
 	AutoJ.inject(this);
 ```
 
-Parcelable send
+model
 ```bash
-	//send
+	//送信
 	 ApAllDataActivity.newInstance().apply {
                     message = "123"
                     myData = MyData("hfafas",true,21)
                 } .start(this)
-	//back
+	//受信
 	AutoJ.inject(this);
 ```
 
 # AutoPage
-Android activity easy jump
-
-# must
+Android の簡単なツール　
+# 注意事項：次の二つの要求が必要です
 1. androidx
 2. kotlin & java
 
-# Support transport type
+# タイプ
 
-All basic types supported by bundles (except ShortArray)
-
-All of the following types are supported. If the type is not the following, a kapt error may be reported
+以下のタイプがサポートされていますが、タイプが以下のタイプでないと，kapt　が　error発生する可能性があります
 
 ```bash
 
@@ -157,21 +130,17 @@ All of the following types are supported. If the type is not the following, a ka
 ```
 
 
-#########use#########
+#########使用#########
 
-Since jcenter service will be abandoned after May 1, the project will be migrated to jitpack, and the version number will be changed to 1.0.8 at the same time
-
-project : build.gradle
+プロジェクト : build.gradle
 ```
 buildscript {
     repositories {
         maven { url 'https://www.jitpack.io' }
     }
 ```
-config
-your module
-kotlin kapt
-Your project must support @Parcelize annotation, that is, you must add application plugin: 'kotlin Android extensions'
+モジュール : build.gradle
+
 ```
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -182,29 +151,24 @@ androidExtensions {
     }
 }
 
-
     kapt com.github.smartbackme.AutoPage:autopage-processor:1.0.8
     implementation com.github.smartbackme.AutoPage:autopage:1.0.8
 ```
 
-**point**
-
- 1. @AutoPage in class or field
- 2. Ap suffix
-
+**重点**
 
 *kotlin：*
-1. filed must have @JvmField and @AutoPage
-2. onCreate method must have AutoJ.inject(this)
+1.  @JvmField  @AutoPage
+2. onCreate 中 AutoJ.inject(this)　を追加します
 
 *java：*
-1. filed must have @AutoPage
-2. onCreate method must have AutoJ.inject(this)
+1. @AutoPage
+2. onCreate 中 AutoJ.inject(this)　を追加します
 
 
-#########for Activity usage#########
-## example one
-simple jump to activity
+######### Activity 中使用#########
+## 例1
+簡単なジャンプ
 
 ```
 @AutoPage
@@ -215,16 +179,14 @@ class SimpleJump1Activity : AppCompatActivity() {
     }
 }
 ```
-then
+後で呼び出します
 
 ```
 ApSimpleJump1Activity.newInstance().start(this)
-
 ```
 
-## example two
-simple jump to activity and message
-
+## 例2
+簡単なジャンプとパラメータ付き
 ```
 class MainActivity2 : AppCompatActivity() {
 
@@ -240,7 +202,7 @@ class MainActivity2 : AppCompatActivity() {
     }
 }
 ```
-then
+後で呼び出します
 
 ```
             ApMainActivity2.newInstance().apply {
@@ -248,8 +210,8 @@ then
             } .start(this)
 ```
 
-## example three:
-jump to activity and result
+## 例3:
+resultがある
 
 ```
 @AutoPage
@@ -267,7 +229,7 @@ class SimpleJumpResultActivity : AppCompatActivity() {
     }
 }
 ```
-then
+後で呼び出します
 
 ```
             ApSimpleJumpResultActivity.newInstance().apply {
@@ -275,10 +237,9 @@ then
             }.start(this)
 ```
 
-## example four:
-Parcelable
+## 例4:
+model転送
 
-pojo
 '''
 @Parcelize
 data class MyData(var message:String,var hehehe: Boolean,var temp :Int):Parcelable
@@ -304,7 +265,7 @@ class AllDataActivity : AppCompatActivity() {
     }
 }
 ```
-then
+後で呼び出します
 
 ```
             ApAllDataActivity.newInstance().apply {
@@ -312,8 +273,8 @@ then
                 myData = MyData("hfafas",true,21)
 ```
 
-## example five:
-default value
+## 例5:
+default valur
 
 ```
 class DefaultValueActivity : AppCompatActivity() {
@@ -331,14 +292,14 @@ class DefaultValueActivity : AppCompatActivity() {
     }
 }
 ```
-then
+後で呼び出します
 
 ```
             ApDefaultValueActivity.newInstance().apply {
             } .start(this)
 ```
 
-#########for Fragment usage#########
+####### fragment 中使用 #########
 
 ```
 class FragmentSimpleFragment : Fragment() {
@@ -373,7 +334,7 @@ class FragmentSimpleFragment : Fragment() {
 
 ```
 
-then
+後で呼び出します
 
 ```
 ApFragmentSimpleFragment.newInstance().apply {
@@ -388,7 +349,7 @@ Wait...
 # License
 
 ```
-                   MIT License
+                  MIT License
 
 Copyright (c) 2021 zhonghua
 
