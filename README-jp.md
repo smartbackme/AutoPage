@@ -179,7 +179,7 @@ class SimpleJump1Activity : AppCompatActivity() {
     }
 }
 ```
-後で呼び出します
+後で
 
 ```
 ApSimpleJump1Activity.newInstance().start(this)
@@ -202,7 +202,7 @@ class MainActivity2 : AppCompatActivity() {
     }
 }
 ```
-後で呼び出します
+後で
 
 ```
             ApMainActivity2.newInstance().apply {
@@ -229,7 +229,7 @@ class SimpleJumpResultActivity : AppCompatActivity() {
     }
 }
 ```
-後で呼び出します
+後で
 
 ```
             ApSimpleJumpResultActivity.newInstance().apply {
@@ -265,7 +265,7 @@ class AllDataActivity : AppCompatActivity() {
     }
 }
 ```
-後で呼び出します
+後で
 
 ```
             ApAllDataActivity.newInstance().apply {
@@ -292,7 +292,7 @@ class DefaultValueActivity : AppCompatActivity() {
     }
 }
 ```
-後で呼び出します
+後で
 
 ```
             ApDefaultValueActivity.newInstance().apply {
@@ -334,7 +334,7 @@ class FragmentSimpleFragment : Fragment() {
 
 ```
 
-後で呼び出します
+後で
 
 ```
 ApFragmentSimpleFragment.newInstance().apply {
